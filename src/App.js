@@ -10,7 +10,7 @@ const App = () => {
       [...prevOrders,obj]
     )
     
-    localStorage.setItem('orders',JSON.stringify(orders))
+    
   }
   
   useEffect(() => {
@@ -19,6 +19,10 @@ const App = () => {
       setOrders(JSON.parse(storedOrders));
     }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('orders', JSON.stringify(orders));
+  }, [orders]);
 
 
   const handleDelete = (index) => {
