@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Form = () => {
+const Form = (props) => {
   const [id, setId] = useState('');
   const [price, setPrice] = useState('');
   const [dish, setDish] = useState('');
@@ -8,10 +8,13 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic
+    let obj={id,price,dish,tableNo}
+    props.onFormSubmit(obj)
+
   };
 
   return (
+    <center>
     <form onSubmit={handleSubmit}>
       <label>
         ID:
@@ -39,6 +42,7 @@ const Form = () => {
       <br />
       <button type="submit">Submit</button>
     </form>
+    </center>
   );
 };
 
